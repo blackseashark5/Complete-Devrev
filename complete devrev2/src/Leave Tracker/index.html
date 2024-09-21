@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label, input, button {
+            display: block;
+            margin: 15px 0;
+        }
+        input, button {
+            padding: 10px;
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Leave Tracker</h2>
+        <form id="leaveForm">
+            <label for="agentName">Agent Name:</label>
+            <input type="text" id="agentName" placeholder="Enter your name" required>
+            
+            <label for="leaveStart">Leave Start Date:</label>
+            <input type="date" id="leaveStart" required>
+            
+            <label for="leaveEnd">Leave End Date:</label>
+            <input type="date" id="leaveEnd" required>
+            
+            <button type="submit">Submit Leave</button>
+        </form>
+        <p id="statusMessage"></p>
+    </div>
+
+    <script>
+        const leaveForm = document.getElementById('leaveForm');
+        const statusMessage = document.getElementById('statusMessage');
+        
+        leaveForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const agentName = document.getElementById('agentName').value;
+            const leaveStart = document.getElementById('leaveStart').value;
+            const leaveEnd = document.getElementById('leaveEnd').value;
+            
+            if (agentName && leaveStart && leaveEnd) {
+                statusMessage.textContent = `Leave submitted for ${agentName} from ${leaveStart} to ${leaveEnd}.`;
+                statusMessage.style.color = 'green';
+            } else {
+                statusMessage.textContent = 'Please fill out all fields!';
+                statusMessage.style.color = 'red';
+            }
+        });
+    </script>
+
+</body>
+</html>
