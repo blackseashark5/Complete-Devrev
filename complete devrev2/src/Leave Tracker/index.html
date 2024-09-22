@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Available Engineers</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f4f9; color: #333; }
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; color: #2c3e50; }
+    #app { max-width: 1200px; margin: 30px auto; padding: 20px; background: white; border-radius: 15px; box-shadow: 0 8px 30px rgba(0, 0, 0, .1); }
+    header { background: #27ae60; color: #fff; padding: 20px 0; border-radius: 10px; }
+    header h1 { text-align: center; font-size: 2.5rem; margin: 0; }
+    nav ul { display: flex; justify-content: center; list-style: none; }
+    nav ul li { margin: 0 15px; font-size: 1.2rem; }
+    nav ul li a { color: white; padding: 10px 20px; border-radius: 8px; background: #2ecc71; transition: .3s; }
+    nav ul li a:hover { background: #1abc9c; }
+    section { padding: 40px 20px; margin-bottom: 40px; background: #ecf0f1; border-radius: 10px; }
+    h2 { text-align: center; text-transform: uppercase; margin-bottom: 20px; }
+    footer { text-align: center; padding: 15px 0; background: #bdc3c7; border-radius: 10px; margin-top: 50px; }
+    footer p { margin: 0; font-size: 1rem; color: #7f8c8d; }
+    .engineer-profile { display: flex; justify-content: space-between; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, .1); margin-bottom: 20px; }
+    .engineer-info { width: 48%; }
+    .engineer-info h3 { margin-bottom: 10px; color: #2980b9; }
+    .engineer-info p { margin-bottom: 8px; font-size: 1rem; color: #34495e; }
+    .engineer-stats { width: 48%; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    .engineer-stats span { font-size: 1.5rem; color: #2ecc71; }
+    .stat-label { font-size: 1.2rem; color: #7f8c8d; margin-bottom: 5px; }
+    .ticket-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    .ticket-table th, .ticket-table td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+    .ticket-table th { background: #27ae60; color: white; }
+    input[type="text"], input[type="date"], select, textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+    .button { background: #2980b9; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background .3s; }
+    .button:hover { background: #3498db; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Engineer Profiles and Statistics</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Leave Tracker</a></li>
+      <li><a href="#">Ticket Rescheduler</a></li>
+      <li><a href="#">Available Engineers</a></li>
+    </ul>
+  </nav>
+  <div id="app">
+    <section>
+      <h2>Available Engineers</h2>
+      <div class="engineer-profile">
+        <div class="engineer-info">
+          <h3>Ranveer Singh (Emp ID: 12345)</h3>
+          <p>Joining Date: 2022-03-10</p>
+          <p>Manager: Jane Smith</p>
+          <p>Manager Joining Date: 2021-02-05</p>
+          <p>Current Project: AI Chatbot Integration</p>
+          <p>Project End Date: 2023-12-01</p>
+        </div>
+        <div class="engineer-stats">
+          <div class="stat-label">Tickets Assigned:</div>
+          <span>45</span>
+          <div class="stat-label">Tickets Solved:</div>
+          <span>40</span>
+        </div>
+      </div>
+      <div class="engineer-profile">
+        <div class="engineer-info">
+          <h3>Srishti Chordia (Emp ID: 23456)</h3>
+          <p>Joining Date: 2023-01-15</p>
+          <p>Manager: Alex Johnson</p>
+          <p>Manager Joining Date: 2020-10-20</p>
+          <p>Current Project: CRM System Upgrade</p>
+          <p>Project End Date: 2024-05-15</p>
+        </div>
+        <div class="engineer-stats">
+          <div class="stat-label">Tickets Assigned:</div>
+          <span>30</span>
+          <div class="stat-label">Tickets Solved:</div>
+          <span>25</span>
+        </div>
+      </div>
+      <div class="engineer-profile">
+        <div class="engineer-info">
+          <h3>Aryan Somanna (Emp ID: 34567)</h3>
+          <p>Joining Date: 2021-07-30</p>
+          <p>Manager: Rachel Green</p>
+          <p>Manager Joining Date: 2020-06-10</p>
+          <p>Current Project: Mobile App Development</p>
+          <p>Project End Date: 2024-08-30</p>
+        </div>
+        <div class="engineer-stats">
+          <div class="stat-label">Tickets Assigned:</div>
+          <span>60</span>
+          <div class="stat-label">Tickets Solved:</div>
+          <span>55</span>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>Tickets and Stats</h2>
+      <table class="ticket-table">
+        <tr>
+          <th>Engineer</th>
+          <th>Tickets Assigned</th>
+          <th>Tickets Solved</th>
+          <th>Project End Date</th>
+          <th>Days Remaining</th>
+        </tr>
+        <tr>
+          <td>John Doe</td>
+          <td>45</td>
+          <td>40</td>
+          <td>2023-12-01</td>
+          <td id="days-john">--</td>
+        </tr>
+        <tr>
+          <td>Mary Lee</td>
+          <td>30</td>
+          <td>25</td>
+          <td>2024-05-15</td>
+          <td id="days-mary">--</td>
+        </tr>
+        <tr>
+          <td>Chris Adams</td>
+          <td>60</td>
+          <td>55</td>
+          <td>2024-08-30</td>
+          <td id="days-chris">--</td>
+        </tr>
+      </table>
+    </section>
+  </div>
+  <footer>
+    <p>© 2024 Engineer Management System</p>
+  </footer>
+  <script>
+    function calculateDaysRemaining(projectEndDate) {
+      const currentDate = new Date();
+      const endDate = new Date(projectEndDate);
+      const timeDiff = endDate - currentDate;
+      return Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+    }
+    document.getElementById('days-john').textContent = calculateDaysRemaining('2023-12-01');
+    document.getElementById('days-mary').textContent = calculateDaysRemaining('2024-05-15');
+    document.getElementById('days-chris').textContent = calculateDaysRemaining('2024-08-30');
+  </script>
+</body>
+</html>
